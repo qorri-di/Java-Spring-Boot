@@ -21,6 +21,9 @@ public class DataEnkripsi {
     @Column(name = "type_encrypt")
     private String typeEncrypt;
 
+    @Column(name = "version")
+    private String versi;
+
     @Column(name = "created_at")
     private Date createdAt;
 
@@ -63,6 +66,14 @@ public class DataEnkripsi {
 
     public void setTypeEncrypt(String typeEncrypt) {
         this.typeEncrypt = typeEncrypt;
+    }
+
+    public String getVersi() {
+        return versi;
+    }
+
+    public void setVersi(String versi) {
+        this.versi = versi;
     }
 
     public Date getCreatedAt() {

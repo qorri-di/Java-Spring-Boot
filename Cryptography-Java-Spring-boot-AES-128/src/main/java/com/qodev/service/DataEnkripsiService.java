@@ -3,10 +3,8 @@ package com.qodev.service;
 import com.qodev.common.AesUtil;
 import com.qodev.domain.DataEnkripsi;
 import com.qodev.dto.GeneralResponse;
-import com.qodev.dto.request.EncryptRequest;
-import com.qodev.dto.request.searchRequest;
-import com.qodev.dto.response.DecryptResponse;
-import com.qodev.dto.response.EncryptResponse;
+import com.qodev.dto.request.*;
+import com.qodev.dto.response.*;
 import com.qodev.repository.DataEnkripsiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +31,7 @@ public class DataEnkripsiService extends AesUtil {
             encrypt.setEncryptData(encrypt(request.getEncrypt()));
             encrypt.setCreatedAt(new Date());
             encrypt.setRealData(request.getEncrypt());
+            encrypt.setVersi("v1");
             encrypt.setTypeEncrypt("AES-128");
             encrypt.setCreatedBy("admin");
 
@@ -70,6 +69,7 @@ public class DataEnkripsiService extends AesUtil {
             } else {
                 encrypt.setEncryptData(encrypt(request.getEncrypt()));
                 encrypt.setRealData(request.getEncrypt());
+                encrypt.setVersi(encryptOptional.get().getVersi());
                 encrypt.setTypeEncrypt(encryptOptional.get().getTypeEncrypt());
                 encrypt.setCreatedAt(encryptOptional.get().getCreatedAt());
                 encrypt.setCreatedBy(encryptOptional.get().getCreatedBy());
